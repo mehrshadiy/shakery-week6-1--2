@@ -46,7 +46,7 @@ export const Weather = ({city}: Props) => {
 
     // @ts-ignore
     return (
-        <div className={'flex flex-col items-center'}>
+        <div className={'flex flex-col items-center bg-black'}>
             <Image src={'next.svg'} alt={'LOGO'} width={86} height={44}/>
             <div className={'bg-white shadow mt-4 rounded-2xl p-8 py-16'}>
                 <SearchForm city={city} getWeatherData={getWeatherData}/>
