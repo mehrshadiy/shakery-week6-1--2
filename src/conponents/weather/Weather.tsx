@@ -2,7 +2,8 @@ import {SearchForm} from "@/conponents/weather/SearchForm";
 import {WeatherInfo} from "@/conponents/weather/WeatherInfo";
 import {ForecastList} from "@/conponents/weather/ForecastList";
 import {useState} from "react";
-import {callWeatherApi} from "@/api/api";
+import {callForecastApi, callWeatherApi} from "@/api/api";
+import {ForeCastResponse} from "@/types/api/ForecastResponce";
 
 interface Props {
     city: string
@@ -19,6 +20,8 @@ export const Weather = ({city}: Props) => {
         daily: []
     })
 
+    const [forecastState, setForecastState] = useState<ForeCastResponse | null>(null)
+
     const getWeatherData = async (city: string) => {
         const response = await callWeatherApi({city})
 
@@ -31,6 +34,9 @@ export const Weather = ({city}: Props) => {
             daily: []
         }
         setWeatherState(weather)
+
+        const forecastResponse = await callForecastApi({lat: response.coord.lat,lon: response.coord.lon})
+        setForecastState(forecastResponse)
     }
 
     if (weatherState.city.length === 0) {
@@ -41,7 +47,7 @@ export const Weather = ({city}: Props) => {
         <div className={'bg-white shadow mt-4 rounded-2xl p-8 py-16'}>
             <SearchForm city={city} getWeatherData={getWeatherData}/>
             <WeatherInfo weather={weatherState}/>
-            <ForecastList/>
+            <ForecastList forecast={forecastState}/>
         </div>
     );
 };

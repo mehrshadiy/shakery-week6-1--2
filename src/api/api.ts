@@ -9,8 +9,8 @@ interface WeatherProps {
     city: string
 }
 interface ForecastProps {
-    lat: string,
-    lon: string
+    lat: number,
+    lon: number
 }
 
 export async function callWeatherApi({city} : WeatherProps) : Promise<WeatherResponse> {
