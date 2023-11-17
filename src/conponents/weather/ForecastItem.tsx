@@ -14,9 +14,9 @@ export const ForecastItem = ({item} : Props) => {
             <div>{day}</div>
             <WeatherIcon icon={item.weather[0].icon} size={36}/>
             <div className={'mt-3'}>
-                <span className={'text-primary'}>{item.temp.min}</span>
+                <span className={'text-primary'}>{Math.round(item.temp.min)}</span>
                 -
-                <span className={'text-primary'}>{item.temp.max}</span>
+                <span className={'text-primary'}>{Math.round(item.temp.max)}</span>
             </div>
         </div>
     );

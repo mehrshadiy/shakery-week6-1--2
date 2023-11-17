@@ -1,9 +1,10 @@
 import {SearchForm} from "@/conponents/weather/SearchForm";
 import {WeatherInfo} from "@/conponents/weather/WeatherInfo";
 import {ForecastList} from "@/conponents/weather/ForecastList";
-import {useState} from "react";
+import React, {useState} from "react";
 import {callForecastApi, callWeatherApi} from "@/api/api";
 import {ForeCastResponse} from "@/types/api/ForecastResponce";
+import Image from "next/image";
 
 interface Props {
     city: string
@@ -43,11 +44,15 @@ export const Weather = ({city}: Props) => {
         getWeatherData(city)
     }
 
+    // @ts-ignore
     return (
-        <div className={'bg-white shadow mt-4 rounded-2xl p-8 py-16'}>
-            <SearchForm city={city} getWeatherData={getWeatherData}/>
-            <WeatherInfo weather={weatherState}/>
-            <ForecastList forecast={forecastState}/>
+        <div className={'flex flex-col items-center'}>
+            <Image src={'next.svg'} alt={'LOGO'} width={86} height={44}/>
+            <div className={'bg-white shadow mt-4 rounded-2xl p-8 py-16'}>
+                <SearchForm city={city} getWeatherData={getWeatherData}/>
+                <WeatherInfo weather={weatherState}/>
+                {forecastState && <ForecastList forecast={forecastState}/>}
+            </div>
         </div>
     );
 };

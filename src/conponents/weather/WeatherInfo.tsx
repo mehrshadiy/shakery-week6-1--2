@@ -15,13 +15,13 @@ export const WeatherInfo = ({weather}: Props) => {
                     </div>
                     <div>
                         Humidity: <span className={'text-primary'}>{weather.humidity}</span>, wind: <span
-                        className={'text-primary'}>{weather.wind}</span>
+                        className={'text-primary'}>{weather.wind} km/h</span>
                     </div>
                 </h1>
             </div>
             <div>
-                <div>
-                    <WeatherIcon size={36} icon={weather.icon}/>
+                <div className={'flex justify-end'}>
+                    <WeatherIcon size={56} icon={weather.icon}/>
                 </div>
             </div>
         </div>
