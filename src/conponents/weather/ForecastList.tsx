@@ -10,7 +10,7 @@ export const ForecastList = ({forecast}: Props) => {
     return (
         <div className={'grid-cols-8'}>
             {
-                forecast.daily.map((item: Daily, index: number) => {
+                forecast.daily.map((item: Daily) => {
                     return <ForecastItem item={item}/>
                 })
             }

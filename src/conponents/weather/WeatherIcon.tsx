@@ -4,7 +4,7 @@ import ReactAnimatedWeather from 'react-animated-weather';
 interface Props{
     icon: string,
     size: number
-};
+}
 export const WeatherIcon = ({icon,size} : Props) => {
 
 

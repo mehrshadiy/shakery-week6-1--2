@@ -2,10 +2,10 @@ import {ChangeEvent, FormEvent, useState} from "react";
 
 interface Props {
     city: string,
-    getWeatherData: Function
+    setCityState: Dispatch<SetStateAction<string>>
 }
 
-export const SearchForm = ({city,getWeatherData} : Props) => {
+export const SearchForm = ({city,setCityState} : Props) => {
 
     const [nameState, setNameState] = useState<string>()
 
@@ -15,7 +15,7 @@ export const SearchForm = ({city,getWeatherData} : Props) => {
     
     const submitHandler = (e : FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-        getWeatherData(nameState)
+        setCityState(nameState)
     }
 
     return (
