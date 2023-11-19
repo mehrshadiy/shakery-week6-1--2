@@ -44,7 +44,7 @@ export const Weather = ({city}: Props) => {
 
     useEffect(
         ()=>{
-        getWeatherData()
+        getWeatherData().then()
     },
         [cityState]
     )

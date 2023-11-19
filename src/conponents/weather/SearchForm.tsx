@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, Dispatch, FormEvent, SetStateAction, useState} from "react";
 
 interface Props {
     city: string,
@@ -15,7 +15,7 @@ export const SearchForm = ({city,setCityState} : Props) => {
     
     const submitHandler = (e : FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-        setCityState(nameState)
+        setCityState(nameState!)
     }
 
     return (
